@@ -14,13 +14,13 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up Zig
-      uses: actions/setup-zig@v1
+      uses: goto-bus-stop/setup-zig@v2.2.0
 
     - name: Test with Zig
       run: zig test src/main.zig
 
     - name: Build with Zig
-      run: zig build-exe src/main.zig -femit-bin=zig-app
+      run: zig build
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
