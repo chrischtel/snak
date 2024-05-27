@@ -1,3 +1,3 @@
 build:
 	echo "building"
-	zig build
+	zig build run
