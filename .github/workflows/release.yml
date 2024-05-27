@@ -25,7 +25,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: zig-out/bin
+        name: zig-out/bin/
         path: snak
 
   release:
@@ -40,7 +40,8 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v3
       with:
-        name: zig-app
+        name: snak
+        path: zig-out/bin/
 
     - name: Create Release
       id: create_release
