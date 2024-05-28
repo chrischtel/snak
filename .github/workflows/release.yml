@@ -8,11 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    working-directory: ./snak
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+
+    - name: CWD 
+      run:  echo $(GITHUB_WORKSPACE)
+      run: ls -la
 
     - name: Set up Zig
       uses: goto-bus-stop/setup-zig@v2.2.0
@@ -24,10 +27,11 @@ jobs:
       run: zig build
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: zig-out/bin/
+        name: snak-bin
         path: snak
+        if-no-files-found: error
 
   release:
     needs: build
