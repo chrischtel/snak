@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: snak-bin
-        path: snak
+        path: ./zig-out/bin/snak
         if-no-files-found: error
 
   release:
