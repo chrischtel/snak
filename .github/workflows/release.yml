@@ -46,7 +46,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: snak
-        path: zig-out/bin/
+        path: ./zig-out/bin/snak
 
     - name: Create Release
       id: create_release
