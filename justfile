@@ -1,3 +1,9 @@
 build:
 	echo "building"
-	zig build run
+	zig build
+
+release:
+	echo 'building for release'
+	zig build --release=Fast
+
+

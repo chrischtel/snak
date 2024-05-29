@@ -8,8 +8,15 @@ pub fn getCliArgs() ![]const u8 {
 
     _ = args.skip();
 
+    if (!args.skip()) {
+        std.log.info("no arguments, cancelling...", .{});
+        std.process.exit(5);
+        return error.NoArguments;
+    }
     var buffer = std.ArrayList(u8).init(alloc);
     defer buffer.deinit();
+
+    // var argsCount: i32 = 0;
 
     while (args.next()) |arg| {
         if (buffer.items.len > 0) {
